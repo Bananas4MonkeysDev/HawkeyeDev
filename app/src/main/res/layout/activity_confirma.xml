@@ -49,7 +49,7 @@
             android:fontFamily="@font/robotobold"
             android:textColor="@color/white"
             android:textSize="15sp"
-            android:text="@string/completemosRegi"
+            android:text="@string/codigVeriText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageView" />

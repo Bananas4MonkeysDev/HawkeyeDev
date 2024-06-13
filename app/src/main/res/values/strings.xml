@@ -8,7 +8,8 @@
     <string name="expliIniSes">Lo necesitamos para buscar cuenta existente o crear una nueva</string>
 
     <string name="completemosRegi">Completemos su registro</string>
-    <string name="expliCompleRegi">Complete los siguientes campos con sus datos</string>
+    <string name="verifiNum">Verifiquemos su Número</string>
+    <string name="expliCompleRegi">Ingrese los siguientes campos con sus datos</string>
 
     <string name="codiIngreText">Código</string>
     <string name="numIngreText">Número</string>

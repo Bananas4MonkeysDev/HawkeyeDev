@@ -1,4 +1,3 @@
 package com.example.hawkeyeapp.Model
 
-class Cliente {
-}
+class Cliente (numero:Int)

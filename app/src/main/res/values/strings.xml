@@ -5,7 +5,7 @@
     <string name="expliCodiVeriText">Ingrese el codigo de verificación para completar el proceso</string>
 
     <string name="preguntaNum">¿Cuál es tu Número?</string>
-    <string name="expliIniSes">Lo necesitamos para buscar cuenta existente o crear una nueva</string>
+    <string name="expliIniSes">Lo necesitamos  para buscar tu cuenta o ayudarte a crear una nueva</string>
 
     <string name="completemosRegi">Completemos su registro</string>
     <string name="verifiNum">Verifiquemos su Número</string>
@@ -16,7 +16,7 @@
     <string name="nombApe">Nombres y Apellidos</string>
     <string name="correoEle">Correo Electrónico</string>
 
-
+    <string name="reenviarCod">Reenviar codigo</string>
     <string name="continueBtn">Continuar</string>
 
 </resources>

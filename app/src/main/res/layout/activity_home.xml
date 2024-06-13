@@ -6,6 +6,5 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity"
     android:background="@color/fondo">
-    
 
 </androidx.constraintlayout.widget.ConstraintLayout>

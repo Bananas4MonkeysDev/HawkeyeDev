@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1041251144959",
+    "firebase_url": "https://hawkeyedev-a860b-default-rtdb.firebaseio.com",
+    "project_id": "hawkeyedev-a860b",
+    "storage_bucket": "hawkeyedev-a860b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041251144959:android:f729878299a58f896668ca",
+        "android_client_info": {
+          "package_name": "com.example.hawkeyeapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTGvuLHP_aGBG3e4S5H_m3paSirD9elFc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

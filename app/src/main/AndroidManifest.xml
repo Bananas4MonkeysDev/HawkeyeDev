@@ -13,6 +13,12 @@
         android:theme="@style/Theme.HawkEyeApp"
         tools:targetApi="31">
         <activity
+            android:name=".CompletarRegistroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ConfirmaActivity"
             android:exported="false" />
         <activity

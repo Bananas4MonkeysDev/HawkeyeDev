@@ -1,17 +1,15 @@
 package com.example.hawkeyeapp
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var bottomNavigationView: BottomNavigationView
+    private var currentFragment: Fragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,32 +17,38 @@ class HomeActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         bottomNavigationView = findViewById(R.id.bottom_navigation)
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.miviaje -> {
-                    loadFragment(RegiViaFragment.newInstance("", ""))
-                    true
-                }
-                R.id.historial -> {
-                    loadFragment(ViajesFragment.newInstance("", ""))
-                    true
-                }
-                R.id.page_2 -> {
-                    loadFragment(PerfilFragment.newInstance("", ""))
-                    true
-                }
-                else -> false
-            }
-        }
+        setupBottomNavigationView()
 
         if (savedInstanceState == null) {
             bottomNavigationView.selectedItemId = R.id.miviaje // Selecciona 'Mi Viaje' por defecto
+        } else {
+            // Restaurar el fragmento actual basado en el ítem seleccionado
+            val currentItem = bottomNavigationView.selectedItemId
+            bottomNavigationView.selectedItemId = currentItem // Esto volverá a cargar el fragmento correcto
+        }
+    }
+
+    private fun setupBottomNavigationView() {
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            val fragment = when (item.itemId) {
+                R.id.miviaje -> RegiViaFragment.newInstance("", "")
+                R.id.historial -> ViajesFragment.newInstance("", "")
+                R.id.page_2 -> PerfilFragment.newInstance("", "")
+                else -> null
+            }
+            fragment?.let {
+                loadFragment(it)
+                return@setOnNavigationItemSelectedListener true
+            } ?: false
         }
     }
 
     private fun loadFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.contenedor_opciones, fragment)
-            .commit()
+        if (fragment.javaClass != currentFragment?.javaClass) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.contenedor_opciones, fragment)
+                .commit()
+            currentFragment = fragment
+        }
     }
 }

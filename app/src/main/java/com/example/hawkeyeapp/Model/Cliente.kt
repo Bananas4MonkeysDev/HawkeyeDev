@@ -1,12 +1,15 @@
 package com.example.hawkeyeapp.Model
 
-class Cliente() {
-    var id: String = ""
-    var numero: String = ""
-    var nombre: String = ""
-    var correo: String = ""
+class Cliente {
+    var id: String? = null
+    var numero: String? = null
+    var nombre: String? = null
+    var correo: String? = null
+    var viajes: HashMap<String, Boolean> = hashMapOf() // Usa un HashMap para almacenar referencias a viajes
 
-    constructor(id: String, numero: String, nombre: String, correo: String) : this() {
+    constructor()
+
+    constructor(id: String, numero: String, nombre: String, correo: String) {
         this.id = id
         this.numero = numero
         this.nombre = nombre

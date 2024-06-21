@@ -5,89 +5,180 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo"
-    android:paddingVertical="20dp"
     tools:context=".ConfirmaActivity">
 
-
-<androidx.appcompat.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/robotobold"
+        android:fontFamily="@font/robotoblack"
         android:text="@string/inivia"
         android:textColor="@color/white"
         android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/textView2"
+        app:layout_constraintEnd_toStartOf="@id/logo"
+        app:layout_constraintStart_toStartOf="@id/textView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/logo"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@drawable/logo1"
+        app:layout_constraintBottom_toTopOf="@id/textView2"
+        app:layout_constraintEnd_toEndOf="@id/textView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView9"
+        android:layout_width="320dp"
+        android:layout_height="38dp"
+        android:fontFamily="@font/robotobold"
+        android:gravity="center"
+        android:text="@string/complevia"
+        android:textColor="@color/griscl"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/logo" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView2"
         android:layout_width="320dp"
         android:layout_height="38dp"
-        android:layout_marginTop="12dp"
         android:fontFamily="@font/roboto"
         android:gravity="center"
         android:text="@string/expliCompleVia"
         android:textColor="@color/griscl"
-        android:textSize="17sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView1" />
+        app:layout_constraintTop_toBottomOf="@id/textView9" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/veriText"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/vie1"
         android:layout_width="320dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:hint="@string/partida"
+        android:fontFamily="@font/robotobold"
+        android:text="Aplicativo"
         android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="16sp"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@id/veriText5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView2" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/veriText2"
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/vie2"
         android:layout_width="320dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="12dp"
-        android:hint="@string/llegada"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/robotobold"
+        android:text="Placa"
         android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="16sp"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/veriText5" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/vie3"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/robotobold"
+        android:text="Nombre del Conductor"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/veriText3" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/vie4"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/robotobold"
+        android:text="Origen"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/veriText4" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/vie5"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/robotobold"
+        android:text="Destino"
+        android:textColor="@color/white"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/veriText" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/veriText3"
-        android:layout_width="320dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="12dp"
-        android:hint="@string/placa"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/veriText2" />
-
     <androidx.appcompat.widget.AppCompatSpinner
-        android:id="@+id/veriText4"
+        android:id="@+id/veriText5"
         android:layout_width="320dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="38dp"
+        android:backgroundTint="@color/white"
         android:prompt="@string/aplicativo"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textSize="16sp"
-        android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/veriText3" />
+        app:layout_constraintTop_toBottomOf="@id/vie1" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/veriText3"
+        android:layout_width="320dp"
+        android:layout_height="38dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vie2" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/veriText4"
+        android:layout_width="320dp"
+        android:layout_height="38dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vie3" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/veriText"
+        android:layout_width="320dp"
+        android:layout_height="38dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vie4" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/veriText2"
+        android:layout_width="320dp"
+        android:layout_height="38dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vie5" />
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonIngresar"
@@ -95,11 +186,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:backgroundTint="@color/white"
-        android:text="Registrar"
+        android:text="Iniciar Viaje"
         android:textColor="@color/fondo"
         android:textSize="16sp"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/veriText4" />
+        app:layout_constraintTop_toBottomOf="@id/veriText2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

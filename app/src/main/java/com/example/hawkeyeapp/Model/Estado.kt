@@ -4,7 +4,7 @@ import java.sql.Timestamp
 
 class Estado {
     var id: String = ""
-    var estadoCambio: String = "" 
+    var estadoCambio: String = ""
     lateinit var fecha: Timestamp
 
 

@@ -49,7 +49,7 @@
             android:fontFamily="@font/robotobold"
             android:text="@string/completemosRegi"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageView" />
@@ -63,7 +63,7 @@
             android:gravity="center"
             android:text="@string/expliCompleRegi"
             android:textColor="@color/griscl"
-            android:textSize="15sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView1" />

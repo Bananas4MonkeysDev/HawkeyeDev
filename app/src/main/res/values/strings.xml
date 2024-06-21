@@ -19,4 +19,24 @@
     <string name="reenviarCod">Reenviar codigo</string>
     <string name="continueBtn">Continuar</string>
 
+    <string name="mi_viaje">Mi viaje</string>
+    <string name="historial">Viajes</string>
+    <string name="perfil">Perfil</string>
+
+    <string name="inivia">Registra tu Viaje</string>
+    <string name="expliCompleVia">Ingrese los detalles de su viaje</string>
+    <string name="partida">Punto de Partida</string>
+    <string name="llegada">Punto de Llegada</string>
+    <string name="placa">Placa de Automovil</string>
+    <string name="aplicativo">Aplicativo</string>
+
+    <string-array name="aplicativos_array">
+        <item>Indrive</item>
+        <item>Dyango</item>
+        <item>Uber</item>
+        <item>Sonrisas</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

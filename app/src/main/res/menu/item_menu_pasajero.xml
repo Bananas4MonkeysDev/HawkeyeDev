@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/historial"
+        android:enabled="true"
+        android:icon="@drawable/historial"
+        android:title="@string/historial"
+        />
+
+    <item
+        android:id="@+id/miviaje"
+        android:enabled="true"
+        android:icon="@drawable/viaje"
+        android:title="@string/mi_viaje"
+      />
+
+    <item
+        android:id="@+id/page_2"
+        android:enabled="true"
+        android:icon="@drawable/perfil"
+        android:title="@string/perfil"/>
+</menu>

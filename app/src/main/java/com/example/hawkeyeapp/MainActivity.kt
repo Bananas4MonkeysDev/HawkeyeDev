@@ -16,9 +16,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-
         // Esperar 3 segundos y luego navegar a la pantalla de inicio de sesión
         Handler(Looper.getMainLooper()).postDelayed({
             navigateToLogin()

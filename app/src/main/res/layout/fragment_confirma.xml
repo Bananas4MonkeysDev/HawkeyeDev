@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo"
+    tools:context=".fragmentos.ConfirmaFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="36dp"
+        android:background="@color/fondo">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewBienvenido"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/robotoblack"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="12dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewBienvenido" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/robotobold"
+            android:text="@string/codigVeriText"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textView2"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:text="@string/expliCodiVeriText"
+            android:textColor="@color/griscl"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/cajonVeri"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView1" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cajonVeri"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/resendTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView2">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/otpEditText1"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/codigo_estilo"
+                android:ems="10"
+                android:fontFamily="@font/robotoblack"
+                android:gravity="center"
+                android:hint="-"
+                android:inputType="number"
+                android:textColor="@color/grisos"
+                android:textColorHint="@color/fondo"
+                app:layout_constraintBottom_toBottomOf="@+id/cajonVeri"
+                app:layout_constraintEnd_toStartOf="@id/otpEditText2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/cajonVeri" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/otpEditText2"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/codigo_estilo"
+                android:ems="10"
+                android:fontFamily="@font/robotoblack"
+                android:gravity="center"
+                android:hint="-"
+                android:inputType="number"
+                android:textColor="@color/grisos"
+                android:textColorHint="@color/fondo"
+                app:layout_constraintBottom_toBottomOf="@+id/cajonVeri"
+                app:layout_constraintEnd_toStartOf="@+id/otpEditText3"
+                app:layout_constraintStart_toEndOf="@+id/otpEditText1"
+                app:layout_constraintTop_toTopOf="@+id/cajonVeri" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/otpEditText3"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/codigo_estilo"
+                android:ems="10"
+                android:fontFamily="@font/robotoblack"
+                android:gravity="center"
+                android:hint="-"
+                android:inputType="number"
+                android:textColor="@color/grisos"
+                android:textColorHint="@color/fondo"
+                app:layout_constraintBottom_toBottomOf="@+id/cajonVeri"
+                app:layout_constraintEnd_toStartOf="@+id/otpEditText4"
+                app:layout_constraintStart_toEndOf="@+id/otpEditText2"
+                app:layout_constraintTop_toTopOf="@+id/cajonVeri" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/otpEditText4"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/codigo_estilo"
+                android:ems="10"
+                android:fontFamily="@font/robotoblack"
+                android:gravity="center"
+                android:hint="-"
+                android:inputType="number"
+                android:textColor="@color/grisos"
+                android:textColorHint="@color/fondo"
+                app:layout_constraintBottom_toBottomOf="@+id/cajonVeri"
+                app:layout_constraintEnd_toStartOf="@+id/otpEditText5"
+                app:layout_constraintStart_toEndOf="@+id/otpEditText3"
+                app:layout_constraintTop_toTopOf="@+id/cajonVeri" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/otpEditText5"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/codigo_estilo"
+                android:ems="10"
+                android:fontFamily="@font/robotoblack"
+                android:gravity="center"
+                android:hint="-"
+                android:inputType="number"
+                android:textColor="@color/grisos"
+                android:textColorHint="@color/fondo"
+                app:layout_constraintBottom_toBottomOf="@+id/cajonVeri"
+                app:layout_constraintEnd_toStartOf="@+id/otpEditText6"
+                app:layout_constraintStart_toEndOf="@+id/otpEditText4"
+                app:layout_constraintTop_toTopOf="@+id/cajonVeri" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/otpEditText6"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/codigo_estilo"
+                android:ems="10"
+                android:fontFamily="@font/robotoblack"
+                android:gravity="center"
+                android:hint="-"
+                android:inputType="number"
+                android:textColor="@color/grisos"
+                android:textColorHint="@color/fondo"
+                app:layout_constraintBottom_toBottomOf="@+id/cajonVeri"
+                app:layout_constraintEnd_toEndOf="@id/cajonVeri"
+                app:layout_constraintStart_toEndOf="@+id/otpEditText5"
+                app:layout_constraintTop_toTopOf="@+id/cajonVeri" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/resendTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/robotobold"
+            android:text="@string/reenviarCod"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/buttonIngresar"
+            app:layout_constraintStart_toStartOf="@+id/buttonIngresar"
+            app:layout_constraintTop_toBottomOf="@id/cajonVeri" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonIngresar"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/white"
+            android:text="@string/continueBtn"
+            android:textColor="@color/fondo"
+            android:textSize="16sp"
+            app:cornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cajonVeri" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

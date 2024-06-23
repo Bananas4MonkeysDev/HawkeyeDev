@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo"
-    tools:context=".ViajesFragment">
+    tools:context=".fragmentos.ViajesFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/headerHaw"

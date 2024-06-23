@@ -6,5 +6,7 @@
     <color name="griscl">#B0BEC5</color>
     <color name="grisos">#455A64</color>
     <color name="azulci">#90A4AE</color>
-
+    <color name="red">#FF0000</color>
+    <color name="colorPrimary">#000D1F</color>
+    <color name="colorSecondary">#455A64</color>
 </resources>

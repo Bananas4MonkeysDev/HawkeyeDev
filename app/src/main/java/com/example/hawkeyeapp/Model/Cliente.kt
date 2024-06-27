@@ -5,6 +5,8 @@ class Cliente {
     var numero: String? = null
     var nombre: String? = null
     var correo: String? = null
+    var latitud: Double? = null
+    var longitud: Double? = null
     var viajes: HashMap<String, Boolean> = hashMapOf() // Usa un HashMap para almacenar referencias a viajes
 
     constructor()

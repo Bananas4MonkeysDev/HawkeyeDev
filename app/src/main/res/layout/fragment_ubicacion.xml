@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotoblack"
             android:gravity="center"
-            android:padding="16dp"
+            android:layout_marginTop="16dp"
             android:text="@string/app_name"
             android:textColor="@android:color/white"
             android:textSize="25sp"
@@ -31,117 +31,98 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/mapacon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/headerHaw">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     <!-- Map fragment -->
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="410dp"
+        app:layout_constraintBottom_toTopOf="@id/layoutBottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerHaw"/>
 
     <!-- Bottom layout -->
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:id="@+id/layoutBottom"
         android:layout_width="match_parent"
         android:layout_height="250dp"
+        android:layout_alignParentBottom="true"
         android:background="@color/fondo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <!-- SOS button -->
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/btnSOS"
-            android:layout_width="130dp"
+            android:layout_width="125dp"
             android:layout_height="130dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
             android:backgroundTint="@color/red"
-            android:fontFamily="@font/robotoblack"
             android:text="SOS"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@id/layoutBottom"
-            app:layout_constraintEnd_toEndOf="@id/layoutBottom"
-            app:layout_constraintStart_toStartOf="@id/layoutBottom"
-            app:layout_constraintTop_toTopOf="@id/layoutBottom" />
+            android:textSize="20sp" />
 
         <!-- Countdown timer -->
         <VideoView
             android:id="@+id/videoCountdown"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
             android:layout_below="@id/btnSOS"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@id/layoutBottom"
-            app:layout_constraintEnd_toEndOf="@id/layoutBottom"
-            app:layout_constraintStart_toStartOf="@id/layoutBottom"
-            app:layout_constraintTop_toTopOf="@id/layoutBottom" />
+            android:visibility="gone" />
 
         <!-- Cancel button -->
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/btnCancelar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/griscl"
-            android:fontFamily="@font/robotobold"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="60dp"
+            android:backgroundTint="@color/colorSecondary"
             android:text="Cancelar"
-            android:textColor="@color/fondo"
+            android:textColor="@android:color/white"
             android:textSize="20sp"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@id/layoutBottom"
-            app:layout_constraintEnd_toEndOf="@id/layoutBottom"
-            app:layout_constraintStart_toStartOf="@id/layoutBottom"
-            app:layout_constraintTop_toTopOf="@id/layoutBottom" />
+            android:visibility="gone" />
+
         <!-- Status icons -->
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:id="@+id/layoutStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            app:layout_constraintStart_toStartOf="@id/layoutBottom"
-            app:layout_constraintTop_toTopOf="@id/layoutBottom">
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/imgVerde"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
                 android:alpha="1.0"
-                android:src="@drawable/ic_circle_green"
-                app:layout_constraintBottom_toBottomOf="@id/layoutStatus"
-                app:layout_constraintEnd_toStartOf="@id/imgNaranja"
-                app:layout_constraintStart_toStartOf="@id/layoutStatus"
-                app:layout_constraintTop_toTopOf="@id/layoutStatus" />
+                android:src="@drawable/ic_circle_green" />
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/imgNaranja"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:alpha="0.3"
-                android:src="@drawable/ic_circle_orange"
-                app:layout_constraintBottom_toBottomOf="@id/layoutStatus"
-                app:layout_constraintStart_toEndOf="@id/imgVerde"
-                app:layout_constraintTop_toTopOf="@id/layoutStatus" />
+                android:src="@drawable/ic_circle_orange" />
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/imgRojo"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginStart="8dp"
                 android:alpha="0.3"
-                android:src="@drawable/ic_circle_red"
-                app:layout_constraintBottom_toBottomOf="@id/layoutStatus"
-                app:layout_constraintEnd_toEndOf="@id/layoutStatus"
-                app:layout_constraintStart_toEndOf="@id/imgNaranja"
-                app:layout_constraintTop_toTopOf="@id/layoutStatus" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:src="@drawable/ic_circle_red" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

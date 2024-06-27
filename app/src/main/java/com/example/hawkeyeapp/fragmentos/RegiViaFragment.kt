@@ -9,11 +9,13 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatSpinner
+import com.example.hawkeyeapp.Model.Estado
 import com.example.hawkeyeapp.Model.Viaje
 import com.example.hawkeyeapp.R
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import java.sql.Timestamp
 
 class RegiViaFragment : Fragment() {
     override fun onCreateView(
@@ -38,7 +40,7 @@ class RegiViaFragment : Fragment() {
         ArrayAdapter.createFromResource(
             requireContext(),
             R.array.aplicativos_array,
-            android.R.layout.simple_spinner_item
+            R.layout.spinner_item_custom
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             aplicativoSpinner.adapter = adapter
@@ -59,18 +61,25 @@ class RegiViaFragment : Fragment() {
         }
     }
 
-    private fun registrarViaje(aplicativo: String, placa: String, nombreCondu: String, ubiIni: String, ubiDesti: String) {
+    private fun registrarViaje(aplicativo: String, placa: String, nombreConductor: String, origen: String, destino: String) {
         val currentUser = FirebaseAuth.getInstance().currentUser
         if (currentUser != null) {
             val viajeId = FirebaseDatabase.getInstance().getReference("Viajes").push().key ?: return
-            val viaje = Viaje(viajeId, currentUser.uid, ubiIni, ubiDesti, placa, aplicativo, nombreCondu)
+            val estadoId = FirebaseDatabase.getInstance().getReference("Estados").push().key ?: return
+            val estadoInicial = Estado(estadoId,viajeId, "Normal", Timestamp(System.currentTimeMillis()))
+            val estados = hashMapOf(estadoInicial.id to true)
 
+            val viaje = Viaje(viajeId, currentUser.uid, origen, destino, placa, aplicativo, nombreConductor, estados)
+
+            // Guardar viaje y estado inicial
             FirebaseDatabase.getInstance().getReference("Viajes").child(viajeId).setValue(viaje)
                 .addOnSuccessListener {
-                    // Add the trip to the passenger's trip list
                     FirebaseDatabase.getInstance().getReference("Pasajeros/${currentUser.uid}/viajes").child(viajeId).setValue(true)
-                    navigateToUbicacionFragment()
-                    Toast.makeText(context, "Viaje registrado correctamente", Toast.LENGTH_SHORT).show()
+                    FirebaseDatabase.getInstance().getReference("Estados").child(estadoInicial.id).setValue(estadoInicial)
+                        .addOnSuccessListener {
+                            Toast.makeText(context, "Viaje y estado inicial registrados correctamente", Toast.LENGTH_SHORT).show()
+                            navigateToUbicacionFragment(viajeId)  // Pasar viajeId al fragmento de ubicación
+                        }
                 }
                 .addOnFailureListener {
                     Toast.makeText(context, "Error al registrar viaje", Toast.LENGTH_SHORT).show()
@@ -79,11 +88,14 @@ class RegiViaFragment : Fragment() {
             Toast.makeText(context, "Usuario no autenticado", Toast.LENGTH_SHORT).show()
         }
     }
-    private fun navigateToUbicacionFragment() {
+
+    private fun navigateToUbicacionFragment(viajeId: String) {
+        val fragment = UbicacionFragment.newInstance(viajeId)
         activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.contenedor_opciones, UbicacionFragment.newInstance())
+            ?.replace(R.id.contenedor_opciones, fragment)
             ?.commit()
     }
+
 
     companion object {
         fun newInstance(param1: String, param2: String): RegiViaFragment {

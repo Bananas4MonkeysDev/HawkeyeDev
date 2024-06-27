@@ -81,16 +81,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView2" />
 
-        <com.google.android.material.button.MaterialButton
+        <com.example.hawkeyeapp.AnimaButton
             android:id="@+id/buttonIngresar"
             android:layout_width="320dp"
-            android:layout_height="48dp"
+            android:layout_height="38dp"
             android:layout_marginTop="12dp"
-            android:backgroundTint="@color/white"
+            android:background="@drawable/codigo_estilo"
+            android:textAllCaps="false"
             android:text="@string/continueBtn"
             android:textColor="@color/fondo"
             android:textSize="16sp"
             app:cornerRadius="20dp"
+            android:fontFamily="@font/robotobold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editTextNum" />

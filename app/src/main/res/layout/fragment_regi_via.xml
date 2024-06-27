@@ -179,14 +179,16 @@
         app:layout_constraintTop_toBottomOf="@id/vie5" />
 
 
-    <com.google.android.material.button.MaterialButton
+    <com.example.hawkeyeapp.AnimaButton
         android:id="@+id/buttonIngresar"
         android:layout_width="320dp"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:layout_marginTop="12dp"
-        android:backgroundTint="@color/white"
+        android:background="@drawable/codigo_estilo"
         android:text="Iniciar Viaje"
+        android:textAllCaps="false"
         android:textColor="@color/fondo"
+        android:fontFamily="@font/robotobold"
         android:textSize="16sp"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"

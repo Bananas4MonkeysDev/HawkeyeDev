@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.hawkeyeapp.AnimaButton
 import com.example.hawkeyeapp.R
 import com.example.hawkeyeapp.databinding.FragmentLoginBinding
 import com.google.android.material.button.MaterialButton
@@ -24,7 +25,7 @@ class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
-    private lateinit var sendOTPBtn: MaterialButton
+    private lateinit var sendOTPBtn: AnimaButton
     private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(

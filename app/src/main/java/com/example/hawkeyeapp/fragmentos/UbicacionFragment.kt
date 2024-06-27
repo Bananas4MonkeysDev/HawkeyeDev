@@ -122,7 +122,6 @@ class UbicacionFragment : Fragment(), OnMapReadyCallback {
             override fun onLocationResult(locationResult: LocationResult) {
                 locationResult.lastLocation?.let { location ->
                     val currentLatLng = LatLng(location.latitude, location.longitude)
-                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f))
                     updateLocationInFirebase(location.latitude, location.longitude)
                 }
             }
@@ -170,11 +169,9 @@ class UbicacionFragment : Fragment(), OnMapReadyCallback {
             ref.child("longitude").setValue(longitude)
                 .addOnSuccessListener {
                     Log.d("UbicacionFragment", "Longitude Updated in Firebase")
-                    showSnackbar("Location Updated in Firebase")
                 }
                 .addOnFailureListener {
                     Log.e("UbicacionFragment", "Failed to Update Longitude in Firebase: ${it.message}")
-                    showSnackbar("Failed to Update Location in Firebase: ${it.message}")
                 }
         } ?: Log.e("UbicacionFragment", "No authenticated user found.")
     }

@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatSpinner
+import com.example.hawkeyeapp.AnimaButton
 import com.example.hawkeyeapp.Model.Estado
 import com.example.hawkeyeapp.Model.Viaje
 import com.example.hawkeyeapp.R
@@ -29,7 +30,7 @@ class RegiViaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val buttonIngresar = view.findViewById<MaterialButton>(R.id.buttonIngresar)
+        val buttonIngresar = view.findViewById<AnimaButton>(R.id.buttonIngresar)
         val aplicativoSpinner = view.findViewById<AppCompatSpinner>(R.id.veriText5)
         val placaEditText = view.findViewById<AppCompatEditText>(R.id.veriText3)
         val conductorEditText = view.findViewById<AppCompatEditText>(R.id.veriText4)

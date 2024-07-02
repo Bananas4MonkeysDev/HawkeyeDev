@@ -72,20 +72,23 @@
             android:layout_height="250dp"
             android:layout_below="@id/btnSOS"
             android:layout_centerHorizontal="true"
-            android:visibility="gone" />
+            android:visibility="gone"
+            />
 
         <!-- Cancel button -->
-        <Button
+        <com.example.hawkeyeapp.AnimaButton
             android:id="@+id/btnCancelar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:fontFamily="@font/robotobold"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="30dp"
-            android:backgroundTint="@color/colorSecondary"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/white"
             android:text="Cancelar"
-            android:textColor="@android:color/white"
+            android:textColor="@color/fondo"
             android:textSize="20sp"
             android:visibility="gone" />
 

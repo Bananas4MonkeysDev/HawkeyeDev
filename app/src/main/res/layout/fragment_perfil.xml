@@ -2,32 +2,144 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contentperf"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo"
     tools:context=".fragmentos.PerfilFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/headerHaw"
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/efectoci"
+        android:layout_width="520dp"
+        android:layout_height="200dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/efectofondo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tituapp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:fontFamily="@font/robotoblack"
+        android:gravity="center"
+        android:text="Mi Perfil"
+        android:textColor="@color/fondo"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imaPerf"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/mascotita"
+        app:layout_constraintBottom_toBottomOf="@+id/efectoci"
+        app:layout_constraintEnd_toEndOf="@id/efectoci"
+        app:layout_constraintStart_toStartOf="@id/efectoci"
+        app:layout_constraintTop_toBottomOf="@id/efectoci" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/tvNombre"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/griscl"
+        android:fontFamily="@font/robotobold"
+        android:text="Nombre"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:enabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imaPerf" />
+
+    <ImageView
+        android:id="@+id/ivEditNomb"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:contentDescription="editNombre"
+        android:src="@drawable/edit"
+        app:layout_constraintBottom_toBottomOf="@id/tvNombre"
+        app:layout_constraintStart_toEndOf="@id/tvNombre"
+        app:layout_constraintTop_toTopOf="@id/tvNombre" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/tvCorreo"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/griscl"
+        android:fontFamily="@font/robotobold"
+        android:text="Correo Electronico"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:enabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNombre" />
+
+    <ImageView
+        android:id="@+id/ivEditCorre"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:contentDescription="editCorreo"
+        android:src="@drawable/edit"
+        app:layout_constraintBottom_toBottomOf="@id/tvCorreo"
+        app:layout_constraintStart_toEndOf="@id/tvCorreo"
+        app:layout_constraintTop_toTopOf="@id/tvCorreo" />
+
+    <com.example.hawkeyeapp.AnimaButton
+        android:id="@+id/btnGuardarCambios"
+        android:layout_width="320dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="20dp"
+        android:text="Guardar Cambios"
+        android:textAllCaps="false"
+        android:textColor="@color/fondo"
+        android:visibility="gone"
+        android:background="@drawable/codigo_estilo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCorreo" />
+
+    <LinearLayout
+        android:id="@+id/layoutCerrarSesion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/contentperf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tituapp"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:clickable="true"
+            android:contentDescription="cerrarSesion"
+            android:focusable="true"
+            android:src="@drawable/cerrarsession" />
+
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
             android:fontFamily="@font/robotoblack"
-            android:gravity="center"
             android:padding="16dp"
-            android:text="Mi Perfil"
-            android:textColor="@android:color/white"
-            android:textSize="25sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Cerrar sesión"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

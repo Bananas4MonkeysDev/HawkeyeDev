@@ -6,9 +6,9 @@ class Estado {
     var id: String=""
     var viajeid: String = ""
     var estadoCambio: String = ""
-    var fecha: Timestamp = Timestamp(System.currentTimeMillis())
+    var fecha: Long = System.currentTimeMillis()
 
-    constructor(id:String ,viajeid: String, estadoCambio: String, fecha: Timestamp): this() {
+    constructor(id:String ,viajeid: String, estadoCambio: String, fecha: Long): this() {
         this.id =id
         this.viajeid = viajeid
         this.estadoCambio = estadoCambio

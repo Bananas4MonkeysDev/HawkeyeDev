@@ -1,47 +1,86 @@
 package com.example.hawkeyeapp.fragmentos
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.hawkeyeapp.R
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.hawkeyeapp.databinding.FragmentViajesBinding
+import com.example.hawkeyeapp.Model.Viaje
+import com.example.hawkeyeapp.adapters.ViajeAdapter
+import com.google.android.gms.tasks.Task
+import com.google.android.gms.tasks.Tasks
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 
 class ViajesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private var _binding: FragmentViajesBinding? = null
+    private val binding get() = _binding!!
+
+    private lateinit var database: DatabaseReference
+    private lateinit var viajeAdapter: ViajeAdapter
+    private var viajesList = mutableListOf<Viaje>()
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = FragmentViajesBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupRecyclerView()
+        loadViajes()
+    }
+
+    private fun setupRecyclerView() {
+        viajeAdapter = ViajeAdapter(viajesList)
+        binding.rvViajes.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = viajeAdapter
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_viajes, container, false)
+    private fun loadViajes() {
+        val uid = FirebaseAuth.getInstance().currentUser?.uid ?: return
+        database = FirebaseDatabase.getInstance().getReference("Pasajeros/$uid/viajes")
+        database.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val tasks = mutableListOf<Task<DataSnapshot>>()
+                for (postSnapshot in snapshot.children) {
+                    val viajeId = postSnapshot.key ?: continue
+                    tasks.add(FirebaseDatabase.getInstance().getReference("Viajes/$viajeId").get())
+                }
+                Tasks.whenAllSuccess<DataSnapshot>(tasks).addOnSuccessListener { results ->
+                    results.forEach {
+                        val viaje = it.getValue(Viaje::class.java)
+                        viaje?.let { viajesList.add(it) }
+                    }
+                    viajeAdapter.notifyDataSetChanged()
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.e("ViajesFragment", "Error loading viajes: ${databaseError.message}")
+            }
+        })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ViajesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic fun newInstance(param1: String, param2: String) =
-                ViajesFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
-                }
+        fun newInstance(param1: String, param2: String): ViajesFragment {
+            val fragment = ViajesFragment()
+            val args = Bundle()
+            args.putString("param1", param1)
+            args.putString("param2", param2)
+            fragment.arguments = args
+            return fragment
+        }
     }
 }

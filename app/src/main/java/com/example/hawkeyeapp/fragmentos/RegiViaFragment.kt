@@ -67,10 +67,10 @@ class RegiViaFragment : Fragment() {
         if (currentUser != null) {
             val viajeId = FirebaseDatabase.getInstance().getReference("Viajes").push().key ?: return
             val estadoId = FirebaseDatabase.getInstance().getReference("Estados").push().key ?: return
-            val estadoInicial = Estado(estadoId,viajeId, "Normal", Timestamp(System.currentTimeMillis()))
+            val estadoInicial = Estado(estadoId,viajeId, "Normal", System.currentTimeMillis())
             val estados = hashMapOf(estadoInicial.id to true)
 
-            val viaje = Viaje(viajeId, currentUser.uid, origen, destino, placa, aplicativo, nombreConductor, estados)
+            val viaje = Viaje(viajeId, currentUser.uid, origen, destino, placa, aplicativo, nombreConductor, estados,estadoInicial.fecha,"Iniciado")
 
             // Guardar viaje y estado inicial
             FirebaseDatabase.getInstance().getReference("Viajes").child(viajeId).setValue(viaje)

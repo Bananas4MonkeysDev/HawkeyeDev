@@ -55,7 +55,7 @@ class UbicacionFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun setupVideoView(idVia: String) {
-        val videoPath = "android.resource://" + requireActivity().packageName + "/" + R.raw.countdown
+        val videoPath = "android.resource://" + requireActivity().packageName + "/" + R.raw.cunnt
         binding.videoCountdown.setVideoURI(Uri.parse(videoPath))
         binding.videoCountdown.setOnCompletionListener {
             binding.videoCountdown.visibility = View.GONE
@@ -178,7 +178,7 @@ class UbicacionFragment : Fragment(), OnMapReadyCallback {
 
     private fun updateEstado(estado: String,idVia: String) {
         val timestamp = System.currentTimeMillis()
-        val estadoObjeto = Estado("",idVia,estado, Timestamp(timestamp))
+        val estadoObjeto = Estado("",idVia,estado, timestamp)
         currentViajeId?.let { viajeId ->
             val refEstado = FirebaseDatabase.getInstance().getReference("Estados").push()
             estadoObjeto.id = refEstado.key ?: ""

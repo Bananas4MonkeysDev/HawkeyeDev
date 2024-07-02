@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.hawkeyeapp.R
 import com.example.hawkeyeapp.databinding.FragmentHomeBinding
+import com.example.hawkeyeapp.fragmentos.PerfilFragment
+import com.example.hawkeyeapp.fragmentos.RegiViaFragment
+import com.example.hawkeyeapp.fragmentos.ViajesFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 
